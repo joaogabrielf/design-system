@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+dist
+.turbo
+
 
 # testing
 /coverage
@@ -20,7 +23,7 @@
 *.pem
 
 # debug
-npm-debug.log*
+npm-debug.log*node
 yarn-debug.log*
 yarn-error.log*
 

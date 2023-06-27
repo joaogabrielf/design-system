@@ -1,0 +1,12 @@
+{
+  "name": "@joaogabrielf/eslint-config",
+  "license": "MIT",
+  "private": true,
+  "main": "index.js",
+  "devDependencies": {
+    "eslint": "^8.43.0"
+  },
+  "dependencies": {
+    "@rocketseat/eslint-config": "^1.2.0"
+  }
+}
