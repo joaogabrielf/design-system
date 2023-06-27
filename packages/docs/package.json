@@ -10,6 +10,9 @@
     "build": "storybook build",
     "deploy-storybook": "storybook-to-ghpages"
   },
+  "overrides": {
+    "file-system-cache": "2.3.0"
+  },
   "dependencies": {
     "@joaogabrielf/eslint-config": "*",
     "@joaogabrielf/react": "*",
