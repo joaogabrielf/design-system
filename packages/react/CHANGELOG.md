@@ -1,5 +1,11 @@
 # @joaogabrielf/react
 
+## 2.1.0
+
+### Minor Changes
+
+- 8cfb8ad: add 'use client' in all components for next integration
+
 ## 2.0.1
 
 ### Patch Changes
