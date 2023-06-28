@@ -1,3 +1,5 @@
+'use client'
+
 import { ComponentProps, ElementRef, forwardRef } from 'react'
 import { Input, Prefix, TextInputContainer } from './styles'
 
