@@ -1,5 +1,11 @@
 # @joaogabrielf/eslint-config
 
+## 3.0.0
+
+### Major Changes
+
+- change rules
+
 ## 2.0.0
 
 ### Major Changes
