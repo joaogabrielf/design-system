@@ -1,4 +1,4 @@
-# @joaogabrielf/react
+# @joaogabrielf/tokens
 
 ## 2.0.0
 
@@ -9,9 +9,3 @@
 ### Minor Changes
 
 - cfe04f5: small fixes
-
-## 1.1.0
-
-### Minor Changes
-
-- Add small fixes

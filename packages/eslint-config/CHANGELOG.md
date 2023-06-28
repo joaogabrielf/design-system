@@ -1,17 +1,12 @@
-# @joaogabrielf/react
+# @joaogabrielf/eslint-config
 
 ## 2.0.0
 
 ### Major Changes
 
+- Add new rule
 - cfe04f5: fixes
 
 ### Minor Changes
 
 - cfe04f5: small fixes
-
-## 1.1.0
-
-### Minor Changes
-
-- Add small fixes
