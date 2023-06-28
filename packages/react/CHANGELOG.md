@@ -1,5 +1,11 @@
 # @joaogabrielf/react
 
+## 2.0.1
+
+### Patch Changes
+
+- Add some style fixes to some components and add option to pass reference to TextInput
+
 ## 2.0.0
 
 ### Major Changes
