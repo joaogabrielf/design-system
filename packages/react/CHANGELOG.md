@@ -1,5 +1,27 @@
 # @joaogabrielf/react
 
+## 3.0.0
+
+### Major Changes
+
+- changing to tailwind css
+
+## 2.2.0
+
+### Minor Changes
+
+- fix 'use client' in index file exporting components
+
+## 2.1.0
+
+### Minor Changes
+
+- 8cfb8ad: add 'use client' in all components for next integration
+
+## 2.0.2
+
+- Add 'use client' for next integration
+
 ## 2.0.1
 
 ### Patch Changes

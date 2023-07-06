@@ -1,37 +1,25 @@
-'use client'
+import { ElementType, FC, ReactNode } from 'react'
+import { cn } from '../utils/classMerge'
 
-import { ComponentProps } from 'react'
-import { styled } from '../styles'
+export interface TextAreaProps {
+  as?: ElementType
+  children?: ReactNode
+  className?: string
+}
 
-export const TextArea = styled('textarea', {
-  backgroundColor: '$gray900',
-  padding: '$3 $4',
-  borderRadius: '$sm',
-  boxSizing: 'border-box',
-  border: '2px solid $gray900',
-
-  fontFamily: '$default',
-  fontSize: '$sm',
-  color: '$white',
-  fontWeight: '$regular',
-  resize: 'vertical',
-  minHeight: 80,
-
-  '&:focus': {
-    outline: 0,
-    borderColor: '$green300',
-  },
-
-  '&:disabled': {
-    opacity: 0.5,
-    cursor: 'not-allowed',
-  },
-
-  '&:placeholder': {
-    color: '$gray400',
-  },
-})
+export const TextArea: FC<TextAreaProps> = ({
+  as: Element = 'textarea',
+  children,
+  className,
+}) => (
+  <Element
+    className={cn(
+      'bg-gray-900 py-4 px-4 rounded-sm border-2 border-solid border-gray-900 font-roboto text-sm text-white font-regular resize-y min-h-[80px] focus:outline-0 focus:border-green-300 disabled:opacity-50 disabled:cursor-not-allowed placeholder-gray-400',
+      className,
+    )}
+  >
+    {children}
+  </Element>
+)
 
 TextArea.displayName = 'TextArea'
-
-export interface TextAreaProps extends ComponentProps<typeof TextArea> {}

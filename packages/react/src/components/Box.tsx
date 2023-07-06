@@ -1,17 +1,25 @@
-'use client'
+import { ElementType, FC, ReactNode } from 'react'
+import { cn } from '../utils/classMerge'
 
-import { ComponentProps, ElementType } from 'react'
-import { styled } from '../styles'
+export interface BoxProps {
+  as?: ElementType
+  children?: ReactNode
+  className?: string
+}
 
-export const Box = styled('div', {
-  padding: '$6',
-  borderRadius: '$md',
-  backgroundColor: '$gray800',
-  border: '1px solid $gray600',
-})
+export const Box: FC<BoxProps> = ({
+  as: Element = 'div',
+  children,
+  className,
+}) => (
+  <Element
+    className={cn(
+      'p-6 rounded-md bg-gray-800 border-solid border border-gray-600',
+      className,
+    )}
+  >
+    {children}
+  </Element>
+)
 
 Box.displayName = 'Box'
-
-export interface BoxProps extends ComponentProps<typeof Box> {
-  as?: ElementType
-}

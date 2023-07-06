@@ -1,39 +1,79 @@
-'use client'
+import { ElementType, FC, ReactNode } from 'react'
+import { cn } from '../utils/classMerge'
 
-import { ComponentProps, ElementType } from 'react'
-import { styled } from '../styles'
+export interface TextProps {
+  as?: ElementType
+  children?: ReactNode
+  className?: string
+  size?:
+    | 'xxs'
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | 'xl'
+    | '2xl'
+    | '4xl'
+    | '5xl'
+    | '6xl'
+    | '7xl'
+    | '8xl'
+    | '9xl'
+}
 
-export const Text = styled('p', {
-  fontFamily: '$default',
-  lineHeight: '$base',
-  margin: 0,
-  color: '$gray100',
-
-  variants: {
-    size: {
-      xxs: { fontSize: '$xxs' },
-      xs: { fontSize: '$xs' },
-      sm: { fontSize: '$sm' },
-      md: { fontSize: '$md' },
-      lg: { fontSize: '$lg' },
-      xl: { fontSize: '$xl' },
-      '2xl': { fontSize: '$2xl' },
-      '4xl': { fontSize: '$4xl' },
-      '5xl': { fontSize: '$5xl' },
-      '6xl': { fontSize: '$6xl' },
-      '7xl': { fontSize: '$7xl' },
-      '8xl': { fontSize: '$8xl' },
-      '9xl': { fontSize: '$9xl' },
-    },
-  },
-
-  defaultVariants: {
-    size: 'md',
-  },
-})
+export const Text: FC<TextProps> = ({
+  as: Element = 'p',
+  children,
+  className,
+  size = 'md',
+}) => (
+  <Element
+    className={cn(
+      'font-roboto leading-shorter margin-0 text-gray-100',
+      {
+        'text-xxs': size === 'xxs',
+      },
+      {
+        'text-xs': size === 'xs',
+      },
+      {
+        'text-sm': size === 'sm',
+      },
+      {
+        'text-md': size === 'md',
+      },
+      {
+        'text-lg': size === 'lg',
+      },
+      {
+        'text-xl': size === 'xl',
+      },
+      {
+        'text-2xl': size === '2xl',
+      },
+      {
+        'text-4xl': size === '4xl',
+      },
+      {
+        'text-5xl': size === '5xl',
+      },
+      {
+        'text-6xl': size === '6xl',
+      },
+      {
+        'text-7xl': size === '7xl',
+      },
+      {
+        'text-8xl': size === '8xl',
+      },
+      {
+        'text-9xl': size === '9xl',
+      },
+      className,
+    )}
+  >
+    {children}
+  </Element>
+)
 
 Text.displayName = 'Text'
-
-export interface TextProps extends ComponentProps<typeof Text> {
-  as?: ElementType
-}

@@ -1,101 +1,52 @@
-'use client'
+import { ElementType, FC, ReactNode } from 'react'
+import { cn } from '../utils/classMerge'
 
-import { ComponentProps, ElementType } from 'react'
-import { styled } from '../styles'
+export interface ButtonProps {
+  as?: ElementType
+  children?: ReactNode
+  className?: string
+  variant?: 'primary' | 'secondary' | 'tertiary'
+  size?: 'sm' | 'md'
+}
 
-export const Button = styled('button', {
-  all: 'unset',
-  borderRadius: '$sm',
-  fontSize: '$sm',
-  fontWeight: '$medium',
-  fontFamily: '$default',
-  textAlign: 'center',
-  minWidth: 120,
-  boxSizing: 'border-box',
-  padding: '0 $4',
-
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  gap: '$2',
-
-  cursor: 'pointer',
-
-  svg: {
-    width: '$4',
-    height: '$4',
-  },
-
-  '&:disabled': {
-    cursor: 'not-allowed',
-  },
-
-  '&:focus': {
-    boxShadow: '0 0 0 2px $colors$gray100',
-  },
-
-  variants: {
-    variant: {
-      primary: {
-        color: '$white',
-        background: '$green500',
-
-        '&:not(:disabled):hover': {
-          background: '$green300',
-        },
-
-        '&:disabled': {
-          backgroundColor: '$gray200',
-        },
+export const Button: FC<ButtonProps> = ({
+  as: Element = 'div',
+  children,
+  className,
+  variant = 'primary',
+  size = 'md',
+}) => (
+  <Element
+    className={cn(
+      'rounded-sm text-sm gap-2 font-medium font-roboto text-center min-w-120 py-0 px-4 flex items-center justify-center cursor-pointer disabled:cursor-not-allowed focus:shadow-custom',
+      {
+        'text-white bg-green-500 [&:not(:disabled):hover]:bg-green-300 disabled:bg-gray-200':
+          variant === 'primary',
       },
-
-      secondary: {
-        color: '$green300',
-        border: '2px solid $green500',
-
-        '&:not(:disabled):hover': {
-          background: '$green500',
-          color: '$white',
-        },
-
-        '&:disabled': {
-          color: '$gray200',
-          borderColor: '$gray200',
-        },
+      {
+        'text-green-300 border-2 border-solid border-green-500 [&:not(:disabled):hover]:bg-green-500 [&:not(:disabled):hover]:text-white disabled:text-gray-200 disabled:border-gray-200 ':
+          variant === 'secondary',
       },
-
-      tertiary: {
-        color: '$gray100',
-
-        '&:not(:disabled):hover': {
-          color: '$white',
-        },
-
-        '&:disabled': {
-          color: '$gray600',
-        },
+      {
+        'text-gray-100 [&:not(:disabled):hover]:text-white disabled:text-gray-600':
+          variant === 'tertiary',
       },
-    },
-
-    size: {
-      sm: {
-        height: 38,
+      {
+        'h-[38px]': size === 'sm',
       },
-
-      md: {
-        height: 46,
+      {
+        'h-[46px]': size === 'md',
       },
-    },
-  },
-
-  defaultVariants: {
-    variant: 'primary',
-    size: 'md',
-  },
-})
+      className,
+    )}
+  >
+    {children}
+  </Element>
+)
 
 Button.displayName = 'Button'
 
-export interface ButtonProps extends ComponentProps<typeof Button> {
-  as?: ElementType
-}
+//   svg: {
+//     width: '$4',
+//     height: '$4',
+//   },
